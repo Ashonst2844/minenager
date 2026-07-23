@@ -9,18 +9,19 @@ interface ButtonProps {
     target?:string;
     onClick?:()=>void;
     children:React.ReactNode;
-    style?:React.CSSProperties
+    style?:React.CSSProperties;
+    className?:string
 }
 function Button(props: ButtonProps) {
     const style = {
         width:props.w?props.w:"100%",
         minWidth:props.w?props.w:"100%",
         height:props.h?props.h:"60px",
-        color:props.theme=="primary"?"white":"(--text)",
+        color:props.theme=="primary"?"white":"var(--primary)",
         backgroundColor:props.theme=="warning"?"var(--warning)":props.theme=="secondary"?"var(--secondary)":"var(--primary)", 
         ...props.style
     }
-    const className = `center hover:brightness-110 rounded-2xl p-2`
+    const className = `center hover:brightness-110 rounded-2xl p-2 ${props.className}`
 
     return props.type=="route"?
     
@@ -28,7 +29,7 @@ function Button(props: ButtonProps) {
         {props.children}
     </ReactDOM.Link> 
     : 
-    <a href={props.target} target={props.type=="link"?"_blank":null} className={className} style={style}>
+    <a href={props.type=="link"?props.target:null} target={props.type=="link"?"_blank":null} className={className} style={style}>
         {props.children}
     </a>
 } export default Button;
