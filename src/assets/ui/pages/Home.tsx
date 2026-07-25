@@ -97,7 +97,7 @@ function Home() {
         )}
         <section id="plan" className='center flex-col gap-2'>
             <h1 className={customText}>Hubungi Developer</h1>
-            <Form onSubmit={null}>
+            <Form onSubmit={(e)=>{e.preventDefault()}}>
                 <Form.Input type="text" name="name" placeholder="Name:" required/>
                 <Form.Input type="email" name="email" placeholder="E-mail:" required/>
                 <Form.Input type="textarea" name="message" placeholder="Pesan:" required/>

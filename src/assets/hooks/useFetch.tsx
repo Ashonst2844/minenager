@@ -5,7 +5,7 @@ import React from "react";
 export function useFetch<T= unknown>(key: string, mode: "supabase"|"axios") {
     const [data, setData] = React.useState<T | null>(null)
     const [loading, isLoading] = React.useState<boolean>(true)
-    const [error, isError] = React.useState<Error>(null)
+    const [error, isError] = React.useState<Error | null>(null)
 
     //* FETCH MODE : AXIOS
     const apiFetch = React.useCallback( async (isRefetch = false)=>{
@@ -34,7 +34,7 @@ export function useFetch<T= unknown>(key: string, mode: "supabase"|"axios") {
             setData(res as T)
         } catch(error) {
             console.error("Error Take Data From Supabase: ",error)
-            isError(error)
+            isError(error as Error)
         } finally {isLoading(false)}
     },[key])
 

@@ -24,11 +24,11 @@ function Button(props: ButtonProps) {
     const className = `center hover:brightness-110 rounded-2xl p-2 ${props.className}`
 
     if (props.type=="route") {    
-        return <ReactDOM.Link to={props.target} onClick={props.onClick} className={className} style={style}>
+        return <ReactDOM.Link to={props.target ?? "/"} onClick={props.onClick} className={className} style={style}>
             {props.children}
         </ReactDOM.Link> 
     } else if (props.type=="button"||props.type=="link") {
-        return <a onClick={props.onClick} href={props.target} target={props.type=="link"?"_blank":null} className={className} style={style}>
+        return <a onClick={props.onClick} href={props.target} target={props.type=="link"?"_blank":undefined} className={className} style={style}>
             {props.children}
         </a>
     }

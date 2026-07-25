@@ -16,9 +16,10 @@ interface FormProps {
 function Input(props:InputProps) {
     const inputStyle = `w-full h-16 shadow-2xl border-2 border-(--primary) rounded-2xl text-black p-2`
     
-    if(props.type=="textarea") (
-        <textarea name={props.name} placeholder={props.placeholder} required={props.required}/>
-    )
+    if(props.type=="textarea") {
+        return <textarea name={props.name} placeholder={props.placeholder} required={props.required} className={inputStyle}/>
+    }
+
     return <input min={0} type={props.type} name={props.name} placeholder={props.placeholder} accept="image/*" required={props.required} className={inputStyle}/>
 }
 
