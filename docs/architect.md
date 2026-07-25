@@ -38,6 +38,8 @@ Menggunakan Framework [React.JS + TypeScript](https://react.dev/)
 - [Supabase](https://supabase.com/) : Untuk mengatur database dan authentication, [Database Scheme](scheme.md)
 
 ## E. Navigasi
+[System Flow](workflow.md)
+
 (*app.tsx*)
 **/** : (*home.tsx*) 
 **/register** : (*register.tsx*)

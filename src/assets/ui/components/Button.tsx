@@ -16,7 +16,7 @@ function Button(props: ButtonProps) {
     const style = {
         width:props.w?props.w:"100%",
         minWidth:props.w?props.w:"100%",
-        height:props.h?props.h:"60px",
+        height:props.h?props.h:"48px",
         color:props.theme=="secondary"?"var(--primary)":"white",
         backgroundColor:props.theme=="warning"?"var(--warning)":props.theme=="secondary"?"var(--secondary)":"var(--primary)", 
         ...props.style
@@ -27,7 +27,11 @@ function Button(props: ButtonProps) {
         return <ReactDOM.Link to={props.target ?? "/"} onClick={props.onClick} className={className} style={style}>
             {props.children}
         </ReactDOM.Link> 
-    } else if (props.type=="button"||props.type=="link") {
+    } else if (props.type=="submit") {
+        return <button type="submit" className={className} style={style}>
+            {props.children}
+        </button>
+    } else {
         return <a onClick={props.onClick} href={props.target} target={props.type=="link"?"_blank":undefined} className={className} style={style}>
             {props.children}
         </a>

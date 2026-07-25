@@ -31,10 +31,19 @@ const plans = [
     ]},
 ]
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 function Home() {
     const demo = import.meta.env.DEV
+
+
+    const emailTo = "agusyantosugiyanto@gmail.com"
+    const [emailName, setEmailName] = React.useState("")
+    const [emailSubject, setEmailSubject] = React.useState("")
+    const [emailBody, setEmailBody] = React.useState("")
+    const FinalMessage = `Saya ${emailName}, ${emailBody}`
+    console.log(emailName)
+    const emailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent(emailSubject)}&body=${FinalMessage}`
 
     const customText = `text-4xl mb-4`
 
@@ -97,11 +106,12 @@ function Home() {
         )}
         <section id="plan" className='center flex-col gap-2'>
             <h1 className={customText}>Hubungi Developer</h1>
-            <Form onSubmit={(e)=>{e.preventDefault()}}>
-                <Form.Input type="text" name="name" placeholder="Name:" required/>
-                <Form.Input type="email" name="email" placeholder="E-mail:" required/>
-                <Form.Input type="textarea" name="message" placeholder="Pesan:" required/>
-            </Form>
+            <div className="w-[80%] flex flex-col gap-4">
+                <Form.Input type="text" required={false} name="name" placeholder="Nama: " onChange={(e)=>setEmailName(e.target.value)}/>
+                <Form.Input type="text" required={false} name="subject" placeholder="Tujuan: " onChange={(e)=>setEmailSubject(e.target.value)}/>
+                <Form.Input type="text" required={false} name="message" placeholder="Pesan: " onChange={(e)=>setEmailBody(e.target.value)}/>
+                <Button type="link" theme="primary" target={emailURL}>Test</Button>
+            </div>
         </section>
     </> 
     
