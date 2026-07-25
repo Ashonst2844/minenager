@@ -87,8 +87,8 @@ function Home() {
                 <div className="w-full bg-white shadow-xl p-2 flex flex-col items-center rounded-xl">
                     <h3 className="text-2xl">{plans.find((plan)=>plan.grade==showPlan)?.grade.toUpperCase()}</h3>
                     <ul className="opacity-50 w-full p-6 flex flex-col gap-2">
-                        {plans.find((plan)=>plan.grade==showPlan)?.benefits.map((text)=>(
-                            <li className="list-decimal">{text}</li>
+                        {plans.find((plan)=>plan.grade==showPlan)?.benefits.map((text,i)=>(
+                            <li key={i} className="list-decimal">{text}</li>
                         ))}
                     </ul>
                     <Button type="button" theme="primary">Make A Plan Now!</Button>

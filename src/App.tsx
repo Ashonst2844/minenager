@@ -19,8 +19,13 @@ const social = [
 ]
 
 function App() {
-  const [state,setState] = useState<boolean>(false)
   const logged = true
+  
+  const [state,setState] = useState<boolean>(false)
+  const [navOpen,setNavOpen] = useState<string>("home")
+  const handleChange = (target: string)=>{
+    setNavOpen(target)
+  }
 
   return <main className="min-h-screen">
     <header className="fixed w-full h-16 bg-(--fg)/75 flex items-center justify-between p-4 z-20 shadow-2xl">
@@ -43,8 +48,8 @@ function App() {
         :
         <div className="center flex-col py-2">
           <h1 className="text-2xl">Profile</h1>
-          <div className="w-24 h-24 bg-(--primary) rounded-full my-4">
-            <Image type="icon" url="user"/>
+          <div className="center w-24 h-24 bg-(--primary) rounded-full my-4">
+            <Image type="icon" url="user" w="75%"/>
           </div>
           <div className="w-full flex flex-col my-4">
             <span className="opacity-50 text-xs">Nama</span>
@@ -93,7 +98,7 @@ function App() {
     {
       logged && <nav className="w-full h-16 flex justify-around p-2 fixed bottom-0 bg-(--fg)/75 z-20 shadow-">
         {nav.map((item,i)=>(
-          <Button key={i} type="route" theme="primary" target={item!="home"?`/${item}`:"/"} w="48px" h="48px">
+          <Button onClick={()=>handleChange(item)} key={i} type="route" theme="primary" target={item!="home"?`/${item}`:"/"} w="48px" h="48px" className={item==navOpen?"brightness-120":"brightness-100"}>
             <Image type="icon" url={item}/>
           </Button>
         ))}
