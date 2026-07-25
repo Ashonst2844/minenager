@@ -4,6 +4,6 @@
   align-items: center;
 }
 section:not(section[id="home"]) {
-  padding: 5rem 0;
+  padding: 5rem 1rem;
   min-height: 100vh;
 }

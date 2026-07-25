@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from "react-router-dom"
 
 interface ButtonProps {
-    type:"route"|"button"|"link";
+    type:"route"|"button"|"link"|"submit";
     theme:"primary"|"secondary"|"warning";
     w?:string;
     h?:string;
@@ -17,19 +17,20 @@ function Button(props: ButtonProps) {
         width:props.w?props.w:"100%",
         minWidth:props.w?props.w:"100%",
         height:props.h?props.h:"60px",
-        color:props.theme=="primary"?"white":"var(--primary)",
+        color:props.theme=="secondary"?"var(--primary)":"white",
         backgroundColor:props.theme=="warning"?"var(--warning)":props.theme=="secondary"?"var(--secondary)":"var(--primary)", 
         ...props.style
     }
     const className = `center hover:brightness-110 rounded-2xl p-2 ${props.className}`
 
-    return props.type=="route"?
-    
-    <ReactDOM.Link to={props.target} className={className} style={style}>
-        {props.children}
-    </ReactDOM.Link> 
-    : 
-    <a href={props.type=="link"?props.target:null} target={props.type=="link"?"_blank":null} className={className} style={style}>
-        {props.children}
-    </a>
+    if (props.type=="route") {    
+        return <ReactDOM.Link to={props.target} className={className} style={style}>
+            {props.children}
+        </ReactDOM.Link> 
+    } else if (props.type=="button"||props.type=="link") {
+        return <a onClick={props.onClick} href={props.target} target={props.type=="link"?"_blank":null} className={className} style={style}>
+            {props.children}
+        </a>
+    }
+
 } export default Button;

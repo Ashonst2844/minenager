@@ -16,5 +16,5 @@ function Image(props: ImageProps) {
         <img src={`${props.url}.jpg`} alt={props.url} loading="lazy"/>
     </picture>
     :
-    <img src={`/icons/${props.url}.svg`} alt={props.url} loading="eager" className={props.className}/>
+    <img src={`/icons/${props.url}.svg`} alt={props.url} loading="eager" className={props.className} width={props.w?props.w:"100%"}/>
 } export default Image;
