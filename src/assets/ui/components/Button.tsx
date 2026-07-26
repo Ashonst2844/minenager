@@ -16,7 +16,7 @@ function Button(props: ButtonProps) {
     const style = {
         width:props.w?props.w:"100%",
         minWidth:props.w?props.w:"100%",
-        height:props.h?props.h:"48px",
+        height:props.h?props.h:"3rem",
         color:props.theme=="secondary"?"var(--primary)":"white",
         backgroundColor:props.theme=="warning"?"var(--warning)":props.theme=="secondary"?"var(--secondary)":"var(--primary)", 
         ...props.style

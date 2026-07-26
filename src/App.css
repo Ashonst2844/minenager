@@ -4,6 +4,15 @@
   align-items: center;
 }
 section:not(section[id="home"]) {
-  padding: 5rem 1rem;
+  padding: 5.5rem 1rem;
   min-height: 100vh;
+}
+.navigation::before {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 20vw;
+  height: 30px;
+  background-color: var(--fg);
+  top: -12px;
 }
