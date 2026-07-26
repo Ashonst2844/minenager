@@ -56,7 +56,7 @@ function Home() {
                     <div className="my-8 center flex-col gap-4">
                         <span className="text-center">Saya Akan Membantu Jadwal Kuliah Anda :</span>
                         <Button type="button" theme="secondary" w="60%" target="#features">Get Started!</Button>
-                        <Button type="button" theme="primary" w="60%">Register</Button>
+                        <Button type="route" theme="primary" w="60%" target="/register">Register</Button>
                     </div>
                 </div>
             </div>

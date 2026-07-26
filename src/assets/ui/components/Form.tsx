@@ -2,7 +2,7 @@ import Button from "./Button";
 import React from "react";
 
 interface InputProps {
-    type:"text"|"email"|"textarea";
+    type:"text"|"email"|"password"|"number"|"textarea";
     required:boolean;
     placeholder?:string;
     name:string;
@@ -20,7 +20,6 @@ function Input(props:InputProps) {
     if(props.type=="textarea") {
         return <textarea name={props.name} placeholder={props.placeholder} required={props.required} className={inputStyle}/>
     }
-
     return <input onChange={props.onChange} min={0} type={props.type} name={props.name} placeholder={props.placeholder} accept="image/*" required={props.required} className={inputStyle}/>
 }
 

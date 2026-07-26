@@ -25,8 +25,8 @@ export default function Header(props: HeaderProps) {
                 <h2>Kamu Belum Daftar</h2>
                 <span>Silahkan daftar</span>
                 <div className="center my-4 gap-4 w-full">
-                    <Button type="route" w="50%" theme="primary">Sign-in</Button>
-                    <Button type="route" w="50%" theme="secondary">Log-In</Button>
+                    <Button type="route" w="50%" theme="primary" target="/register#signin">Sign-in</Button>
+                    <Button type="route" w="50%" theme="secondary" target="/register#login">Log-In</Button>
                 </div>
             </div> 
             :
