@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "../components/Button";
 import Form from "../components/Form";
 
@@ -6,7 +7,7 @@ function Register() {
         <section id="signin" className="min-w-full flex flex-col items-center gap-2">
             <h2>Sign-In</h2>
             <span>Create Your Own Account</span>
-            <Form onSubmit={null}>
+            <Form onSubmit={async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); }}> {/* //TODO Just Temporary */}
                 <Form.Input type="text" name="username" placeholder="Masukkan Nama:" required/>
                 <Form.Input type="email" name="email" placeholder="Masukkan Email:" required/>
                 <Form.Input type="password" name="password" placeholder="Masukkan Password:" required/>
@@ -25,7 +26,7 @@ function Register() {
         <section id="login" className="min-w-full flex flex-col items-center gap-2">
             <h2>Log-In</h2>
             <span>Please Login</span>
-            <Form onSubmit={null}>
+            <Form onSubmit={async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); }}> {/* //TODO Just Temporary */}
                 <Form.Input type="text" name="username" placeholder="Masukkan Nama:" required/>
                 <Form.Input type="email" name="email" placeholder="Masukkan Email:" required/>
                 <Form.Input type="password" name="password" placeholder="Masukkan Password:" required/>
