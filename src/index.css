@@ -8,6 +8,7 @@
   --primary: #8d71fe;
   --secondary: white;
   --warning: #f23535;
+  --success: #7cff5b;
   
   background-color: var(--bg);
   color: var(--text);

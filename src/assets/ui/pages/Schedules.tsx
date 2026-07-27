@@ -2,6 +2,7 @@ import Accordion from "../components/Accordion";
 
 function Schedules() {
     return <section>
+        <h1 className="center">Schedules</h1>
         <div className="flex flex-col gap-4">
             <Accordion title="Monday">
                 <h1>Hallo</h1>

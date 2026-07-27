@@ -50,9 +50,9 @@ function Home() {
             <div className="h-screen w-full bg-[url(/images/landing-image.jpg)] bg-cover bg-center pt-18 text-white">
                 <div className="bg-(--fg)/75 p-2">
                     <h2>Hallo,</h2>
-                    <h1>Masagus Ahmad Ramadhan</h1>
+                    <h1 className="uppercase">Masagus Ahmad Ramadhan</h1>
                     <h2>Mahasiswa :</h2>
-                    <h1>UNINDRA <br /> [Computer Science]</h1>
+                    <h3>UNINDRA - [Computer Science](1)</h3>
                     <div className="my-8 center flex-col gap-4">
                         <span className="text-center">Saya Akan Membantu Jadwal Kuliah Anda :</span>
                         <Button type="button" theme="secondary" w="60%" target="#features">Get Started!</Button>
@@ -61,7 +61,7 @@ function Home() {
                 </div>
             </div>
         </section>
-        <section id="features" className='center flex-col'>
+        <section id="features" className='flex items-center flex-col'>
             <h2>Fitur</h2>
             <div className="w-full grid grid-cols-2 grid-rows-2 gap-2">
                 {features.map((item,i)=>(
@@ -100,7 +100,7 @@ function Home() {
                 </div>
             </section>
         )}
-        <section id="plan" className='center flex-col gap-2'>
+        <section id="plan" className='flex items-center flex-col gap-2'>
             <h2>Hubungi Developer</h2>
             <div className="w-[80%] flex flex-col gap-4">
                 <Form.Input type="text" required={false} name="name" placeholder="Nama: " onChange={(e)=>setEmailName(e.target.value)}/>

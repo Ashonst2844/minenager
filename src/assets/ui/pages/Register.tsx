@@ -2,6 +2,13 @@ import React from "react";
 import Button from "../components/Button";
 import Form from "../components/Form";
 
+function ButtonGroup({target, message}) {
+    return <div className="center w-full gap-2">
+        <Button type="route" theme="warning" w="50%" target="/">Cancel</Button>
+        <Button type="button" theme="secondary" w="50%" target={`#${target}`}>{message}</Button>
+    </div>
+}
+
 function Register() {
     return <div className="flex overflow-x-hidden">
         <section id="signin" className="min-w-full flex flex-col items-center gap-2">
@@ -18,10 +25,7 @@ function Register() {
                 <Form.Input type="number" name="semester" placeholder="Masukkan Semester Sekarang:" required/>
                 <Form.Input type="number" name="batch" placeholder="Masukkan Angkatan:" required/>
             </Form>
-            <div className="center w-full gap-2">
-                <Button type="route" theme="warning" w="50%" target="/">Cancel</Button>
-                <Button type="button" theme="secondary" w="50%" target="#login">Have Account?</Button>
-            </div>
+            <ButtonGroup target="login" message="Have Account?"/>
         </section>
         <section id="login" className="min-w-full flex flex-col items-center gap-2">
             <h2>Log-In</h2>
@@ -31,10 +35,7 @@ function Register() {
                 <Form.Input type="email" name="email" placeholder="Masukkan Email:" required/>
                 <Form.Input type="password" name="password" placeholder="Masukkan Password:" required/>
             </Form>
-            <div className="center w-full gap-2">
-                <Button type="route" theme="warning" w="50%" target="/">Cancel</Button>
-                <Button type="button" theme="secondary" w="50%" target="#signin">Not Have Account?</Button>
-            </div>
+            <ButtonGroup target="signin" message="Not Have Account?"/>
         </section>
-    </div> 
+    </div>
 } export default Register;
