@@ -1,6 +1,10 @@
 import Card from "../components/Card";
 
-function Status({status}) {
+type StatusProps = {
+    status: boolean;
+};
+
+function Status({status}: StatusProps) {
     return <div className="w-4 h-4 flex rounded-full absolute top-0 right-0" style={{
         backgroundColor: status?"var(--success)":"var(--warning)"
     }}/>

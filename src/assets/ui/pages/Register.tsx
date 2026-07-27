@@ -2,7 +2,12 @@ import React from "react";
 import Button from "../components/Button";
 import Form from "../components/Form";
 
-function ButtonGroup({target, message}) {
+type ButtonGroupProps = {
+    target: string;
+    message: string;
+};
+
+function ButtonGroup({target, message}: ButtonGroupProps) {
     return <div className="center w-full gap-2">
         <Button type="route" theme="warning" w="50%" target="/">Cancel</Button>
         <Button type="button" theme="secondary" w="50%" target={`#${target}`}>{message}</Button>
