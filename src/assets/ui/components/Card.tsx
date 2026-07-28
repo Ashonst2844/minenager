@@ -4,6 +4,7 @@ import Modal from "./Modal";
 
 interface CardProps {
     use:"tasks"|"todo"|undefined;
+    hasModal:boolean
     children: React.ReactNode;
     [key: string]: string | number | boolean | React.ReactNode;
 }
@@ -15,7 +16,7 @@ function ButtonGroup() {
         <Button type="button" theme="primary">Finish</Button>
     </div>
 }
-function Card({use, children, ...rest}:CardProps) {
+function Card({use, hasModal, children, ...rest}:CardProps) {
     const [state,setState]=React.useState<boolean>(false)
     console.log(rest)
 
@@ -23,12 +24,14 @@ function Card({use, children, ...rest}:CardProps) {
         <div className="w-full h-[80%] flex items-center flex-col text-center justify-around relative">
             {children}
         </div>
-        <Button type="button" theme="primary" h="20%" onClick={()=>setState(true)}>
+        {hasModal ? <Button type="button" theme="primary" h="20%" onClick={()=>setState(true)}>
             <Image type="icon" url="burger-bar" w="20%"/>
-        </Button>
+        </Button> : ""
+        }
+
         {use=="tasks"? 
         <Modal state={state} onClose={()=>setState(false)}>
-            <div className="my-2">
+            <div className="my-2 flex gap-2 flex-col">
                 <p>{`${rest.tasks} - ${rest.subject}`}</p>
                 <p>{`For ${rest.deadline}`}</p>
                 <p>{`From Mr/Mrs. ${rest.lecturer}`}</p>
@@ -38,7 +41,7 @@ function Card({use, children, ...rest}:CardProps) {
         </Modal>
         :use=="todo"?
         <Modal state={state} onClose={()=>setState(false)}>
-            <div className="my-2">
+            <div className="my-2 flex gap-2 flex-col">
                 <p>{`${rest.tasks}`}</p>
                 <p>{`For ${rest.deadline}`}</p>
                 <h2>{rest.status?"Done":"Undone"}</h2>

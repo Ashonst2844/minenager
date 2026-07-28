@@ -31,15 +31,26 @@ const plans = [
     ]},
 ]
 
-import React, { useState } from "react";
+import { useState } from "react";
+
+const dummy_data = {
+    "username":"Masagus Ahmad Ramadhan",
+    "campus":"Unindra",
+    "major":"Computer Science",
+    "nim":202643500545,
+    "semester":1,
+    "batch":2026,
+    "member":"gold"
+}
 
 function Home() {
+
     const demo = import.meta.env.DEV
 
     const emailTo = "agusyantosugiyanto@gmail.com"
-    const [emailName, setEmailName] = React.useState("")
-    const [emailSubject, setEmailSubject] = React.useState("")
-    const [emailBody, setEmailBody] = React.useState("")
+    const [emailName, setEmailName] = useState("")
+    const [emailSubject, setEmailSubject] = useState("")
+    const [emailBody, setEmailBody] = useState("")
     const FinalMessage = `Saya ${emailName}, ${emailBody}`
     const emailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent(emailSubject)}&body=${FinalMessage}`
 
@@ -50,9 +61,9 @@ function Home() {
             <div className="h-screen w-full bg-[url(/images/landing-image.jpg)] bg-cover bg-center pt-18 text-white">
                 <div className="bg-(--fg)/75 p-2">
                     <h2>Hallo,</h2>
-                    <h1 className="uppercase">Masagus Ahmad Ramadhan</h1>
+                    <h1 className="uppercase">{dummy_data.username}</h1>
                     <h2>Mahasiswa :</h2>
-                    <h3>UNINDRA - [Computer Science](1)</h3>
+                    <h3>{dummy_data.campus} - [{dummy_data.major}]({dummy_data.semester})</h3>
                     <div className="my-8 center flex-col gap-4">
                         <span className="text-center">Saya Akan Membantu Jadwal Kuliah Anda :</span>
                         <Button type="button" theme="secondary" w="60%" target="#features">Get Started!</Button>
@@ -96,7 +107,9 @@ function Home() {
                             <li key={i} className="list-decimal">{text}</li>
                         ))}
                     </ul>
-                    <Button type="button" theme="primary">Make A Plan Now!</Button>
+                    {plans.find((plan)=>plan.grade==showPlan)&&showPlan!=dummy_data.member?
+                        <Button type="button" theme="primary">Upgrade!</Button>:<p>You Are Here</p>
+                    }
                 </div>
             </section>
         )}

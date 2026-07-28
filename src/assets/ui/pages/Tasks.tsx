@@ -19,7 +19,7 @@ function Tasks() {
     return <section>
         <h1 className="center">Tasks</h1>
         <div className="grid grid-cols-2 gap-2">
-            {data_dummy.map((item, i)=><Card key={i} use="tasks" {...item}>
+            {data_dummy.map((item, i)=><Card key={i} use="tasks" hasModal {...item}>
                 <Status status={item.status}/>
                 <p className="font-bold">{item.tasks}</p>
                 <span>{item.deadline}</span>

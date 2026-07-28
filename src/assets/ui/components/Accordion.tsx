@@ -17,7 +17,7 @@ function Accordion(props: AccordionProps) {
             {props.children}
         </div>}
         <Button onClick={()=>!show?setShow(true):setShow(false)} type="button" theme="primary" h="32px">
-            <Image type="icon" url="caret" w="10%" className={`rotate-${!show?"0":"180"}`}/>
+            <Image type="icon" url="caret" w="5%" className={`rotate-${!show?"0":"180"}`}/>
         </Button>
     </div>
 } export default Accordion;
